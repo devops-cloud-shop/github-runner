@@ -37,7 +37,10 @@ chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl  /usr/local/bin && export PATH=$HOME/bin:$PATH
 
 # Trivy
-curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin v0.68.2
+wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.70.0_Linux-64bit.tar.gz
+tar -xvf trivy_0.70.0_Linux-64bit.tar.gz
+sudo mv trivy /usr/local/bin/
+sudo chmod +x /usr/local/bin/trivy
 
 # Helm
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
